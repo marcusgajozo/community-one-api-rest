@@ -1,0 +1,35 @@
+services:
+  community-one-api-rest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: community-one-api-rest
+    ports:
+      - '${API_PORT_EXTERNAL:-80}:${API_PORT:-8080}'
+    volumes:
+      - .:/api
+    networks:
+      - networkName
+    depends_on:
+      - postgres-community-one
+
+  postgres-community-one:
+    image: postgres:15
+    container_name: postgres-community-one
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-community_one}
+    ports:
+      - '${DB_PORT:-5432}:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - networkName
+
+volumes:
+  postgres-data:
+
+networks:
+  networkName:
+    driver: bridge
