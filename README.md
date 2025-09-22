@@ -1,98 +1,80 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Community One API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+API REST desenvolvida para o gerenciamento de membros e atividades de comunidades e igrejas. O projeto foi construído com foco em escalabilidade e manutenibilidade, utilizando o ecossistema NestJS.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Tecnologias Utilizadas
 
-## Project setup
+Este projeto foi construído com as seguintes tecnologias:
 
-```bash
-$ pnpm install
-```
+- **[NestJS](https://nestjs.com/)**: Um framework Node.js progressivo para construir aplicações eficientes, confiáveis e escaláveis.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superset de JavaScript que adiciona tipagem estática.
+- **[TypeORM](https://typeorm.io/)**: Um ORM (Object-Relational Mapper) para TypeScript e JavaScript.
+- **[PostgreSQL](https://www.postgresql.org/)**: Um poderoso sistema de banco de dados relacional de código aberto.
+- **[Docker](https://www.docker.com/)**: Para garantir um ambiente de desenvolvimento e produção consistente e conteinerizado.
+- **[Jest](https://jestjs.io/)**: Framework de testes em JavaScript com foco na simplicidade.
+- **[ESLint](https://eslint.org/)** e **[Prettier](https://prettier.io/)**: Para garantir a qualidade e a padronização do código.
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ pnpm run start
+## 📋 Pré-requisitos
 
-# watch mode
-$ pnpm run start:dev
+Antes de começar, você vai precisar ter instalado em sua máquina:
 
-# production mode
-$ pnpm run start:prod
-```
+- [NVM](https://github.com/nvm-sh/nvm)
+- [Node.js](https://nodejs.org/en/) (versão v22.16.0 ou superior)
+- [Docker](https://www.docker.com/get-started) e [Docker Compose](https://docs.docker.com/compose/install/)
+- [Git](https://git-scm.com/)
 
-## Run tests
+---
+
+## ⚙️ Instalação e Configuração
+
+Siga os passos abaixo para configurar o ambiente de desenvolvimento local.
+
+**1. Clone o repositório**
+
+**2. Crie um .env na raiz do projeto, você pode copiar o .env.example, atualize as envs conforme necessário**
+
+**3. Instale as dependências:**
 
 ```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+nvm use
+npm install
 ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## ▶️ Executando a Aplicação
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Para iniciar a aplicação em ambiente de desenvolvimento com Docker, use o comando:
 
 ```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+docker compose -f docker-compose.dev.yaml up --build
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+A API estará disponível em `http://localhost:8080` (ou na `API_PORT_EXTERNAL` que você definiu).
 
-## Resources
+### Scripts Disponíveis
 
-Check out a few resources that may come in handy when working with NestJS:
+Você também pode rodar os seguintes scripts `npm` (geralmente dentro do contêiner ou localmente se o banco estiver acessível):
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+# Modo de desenvolvimento com watch
+npm run start:dev
 
-## Support
+# Modo de produção
+npm run start:prod
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# Modo de depuração
+npm run start:debug
+```
 
-## Stay in touch
+---
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 📄 Licença
 
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
